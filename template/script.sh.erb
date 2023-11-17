@@ -5,6 +5,8 @@ echo "TIMING - Starting main script at: $(date)"
 
 # Set working directory to home directory
 cd "${HOME}"
+echo "${PORT}"
+echo "$(PORT)"
 
 #
 # Start Jupyter Notebook Server
@@ -32,4 +34,4 @@ echo "TIMING - Starting jupyter at: $(date)"
 # Launch the Jupyter Notebook Server
 set -x
 # Test without config file
-python -c "from rsp_vision.dashboard.app import app;  app.run_server(debug=True)"
+python -c "import os; port = os.environ['PORT']; from rsp_vision.dashboard.app import app;  app.run_server(debug=True, port=port)"
