@@ -1,0 +1,15 @@
+---
+cluster: "SWC"
+attributes:
+  modules: "miniconda"
+  extra_jupyter_args: ""
+
+# These attributes are currently not displayed, to be investigated
+form:
+  - modules
+  - extra_jupyter_args
+  - bc_account
+  - bc_queue
+  - bc_num_hours
+  - bc_num_slots
+  - bc_email_on_started

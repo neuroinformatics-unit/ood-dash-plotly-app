@@ -1,0 +1,7 @@
+---
+name: RSP Vision - Dash Plotly App
+category: Interactive Apps
+subcategory: Servers
+role: batch_connect
+description: |
+  This app will launch a Dash Plotly dashboard, RSP vision.
