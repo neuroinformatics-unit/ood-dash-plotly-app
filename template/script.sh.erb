@@ -5,8 +5,8 @@ echo "TIMING - Starting main script at: $(date)"
 
 # Set working directory to home directory
 cd "${HOME}"
-echo "${PORT}"
-echo "$(PORT)"
+echo "Host is: ${HOST}"
+echo "Port is: ${PORT}"
 
 #
 # Start Jupyter Notebook Server
@@ -34,4 +34,6 @@ echo "TIMING - Starting jupyter at: $(date)"
 # Launch the Jupyter Notebook Server
 set -x
 # Test without config file
-python -c "import os; port = os.environ['PORT']; from rsp_vision.dashboard.app import app;  app.run_server(debug=True, port=port)"
+export CONFIG_PATH="${HOME}/source/rsp-vision/rsp_vision/config/config.yml"
+#python -c "import os; port = os.environ['PORT']; from rsp_vision.dashboard.app import app;  app.run_server(debug=True, port=port, host='0.0.0.0')"
+python -c "import os; port = os.environ['PORT']; import dash; import dash_html_components as html; app = dash.Dash(__name__); app.layout = html.Div(children=[html.H1(children='Hello World')]);  app.run_server(debug=True, port=port, host=os.environ['BASE_URL'])"
